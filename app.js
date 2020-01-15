@@ -8,10 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
     storageBucket: "magicbois.appspot.com",
   };
   firebase.initializeApp(config);
+  firebase.analytics();
   // Get a reference to the database service
   
   var database = firebase.database();
-  
+
     const preObject = document.getElementById('object');
 
     const dbRefObject = firebase.database().ref().child('object');
