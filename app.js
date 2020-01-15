@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     
-    // Get a reference to the database service
-    var database = firebase.database();
-
     const preObject = document.getElementById('object');
 
     const dbRefObject = firebase.database().ref().child('object');
