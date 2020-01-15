@@ -12,8 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     firebase.initializeApp(firebaseConfig);
 
-    // var database = firebase.database();
-
     // const preObject = document.getElementById('object');
 
     // const dbRefObject = firebase.database().ref().child('object');
