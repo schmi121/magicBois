@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     var firebaseInstance = firebase.initializeApp(firebaseConfig);
-    console.log(firebase);
+    console.log(firebaseInstance)
 
     firebase.database().ref('/magic').push({test: "test"});
     
