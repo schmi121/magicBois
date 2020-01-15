@@ -1,24 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Set the configuration for your app
-  // TODO: Replace with your project's config object
-  var config = {
+  var firebaseConfig = {
     apiKey: "AIzaSyAkTJiWbAIVZtkmYlLCbOV5rdgNBU6qkZo",
     authDomain: "magicbois.firebaseapp.com",
     databaseURL: "https://magicbois.firebaseio.com",
-    storageBucket: "magicbois.appspot.com"
+    projectId: "magicbois",
+    storageBucket: "magicbois.appspot.com",
+    messagingSenderId: "9464443469",
+    appId: "1:9464443469:web:54fb67767c3a51b8be2204",
+    measurementId: "G-N6RHKFFC38",
   };
+    
+    firebase.initializeApp(firebaseConfig);
 
-  // Get a reference to the database service
-  var database = firebase.database();
-  // Get a reference to the database service
-  
-  console.log(firebase)
+    var database = firebase.database();
 
-    const preObject = document.getElementById('object');
+    // const preObject = document.getElementById('object');
 
-    const dbRefObject = firebase.database().ref().child('object');
+    // const dbRefObject = firebase.database().ref().child('object');
 
-    dbRefObject.on('value', snap => console.log(snap.val()));
+    // dbRefObject.on('value', snap => console.log(snap.val()));
     
     
     
