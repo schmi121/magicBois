@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   };
     
     firebase.initializeApp(firebaseConfig);
-
-    console.log(firebase)
+    console.log(firebase);
 
         // const preObject = document.getElementById('object');
 
