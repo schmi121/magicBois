@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         measurementId: "G-N6RHKFFC38",
     };
 
-    var firebaseInstance = firebase.initialize(firebaseConfig);
+    var firebaseInstance = firebase.initializeApp(firebaseConfig);
     console.log(firebase);
 
     firebase.database().ref('/magic').push({test: "test"});
