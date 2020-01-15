@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         measurementId: "G-N6RHKFFC38"
     };
 
-    firebase.initializeApp(config);
+    firebase.initializeApp(firebaseConfig);
 
     // Get a reference to the database service
     var database = firebase.database();
