@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
+    // Set the configuration for your app
+  // TODO: Replace with your project's config object
+  var config = {
+    apiKey: "AIzaSyAkTJiWbAIVZtkmYlLCbOV5rdgNBU6qkZo",
+    authDomain: "magicbois.firebaseapp.com",
+    databaseURL: "https://magicbois.firebaseio.com",
+    storageBucket: "magicbois.appspot.com",
+  };
+  firebase.initializeApp(config);
+  // Get a reference to the database service
+  
+  var database = firebase.database();
+  
     const preObject = document.getElementById('object');
 
     const dbRefObject = firebase.database().ref().child('object');
