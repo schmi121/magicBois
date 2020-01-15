@@ -1,27 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var firebaseConfig = {
-    apiKey: "AIzaSyAkTJiWbAIVZtkmYlLCbOV5rdgNBU6qkZo",
-    authDomain: "magicbois.firebaseapp.com",
-    databaseURL: "https://magicbois.firebaseio.com",
-    projectId: "magicbois",
-    storageBucket: "magicbois.appspot.com",
-    messagingSenderId: "9464443469",
-    appId: "1:9464443469:web:54fb67767c3a51b8be2204",
-    measurementId: "G-N6RHKFFC38",
-  };
-    
+    var firebaseConfig = {
+        apiKey: "AIzaSyAkTJiWbAIVZtkmYlLCbOV5rdgNBU6qkZo",
+        authDomain: "magicbois.firebaseapp.com",
+        databaseURL: "https://magicbois.firebaseio.com",
+        projectId: "magicbois",
+        storageBucket: "magicbois.appspot.com",
+        messagingSenderId: "9464443469",
+        appId: "1:9464443469:web:54fb67767c3a51b8be2204",
+        measurementId: "G-N6RHKFFC38",
+    };
+
     firebase.initializeApp(firebaseConfig);
     console.log(firebase);
 
-        // const preObject = document.getElementById('object');
+    firebase.database().ref('/magic').push({test: "test"});
+    
 
-        // const dbRefObject = firebase.database().ref().child('object');
 
-        // dbRefObject.on('value', snap => console.log(snap.val()));
-    
-    
-    
-    
+
+
+    // const preObject = document.getElementById('object');
+
+    // const dbRefObject = firebase.database().ref().child('object');
+
+    // dbRefObject.on('value', snap => console.log(snap.val()));
+
+
+
+
     // const magicBois = ['jordan', 'tone', 'blake', 'dillon', 'will'];
 
     // let cpuChoice = magicBois[Math.floor(Math.random() * magicBois.length)];
