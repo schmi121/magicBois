@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     firebase.initializeApp(firebaseConfig);
 
-    // var database = firebase.database();
+    var database = firebase.database();
 
     // const preObject = document.getElementById('object');
 
@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', function () {
     
     
     
-    const magicBois = ['jordan', 'tone', 'blake', 'dillon', 'will'];
+    // const magicBois = ['jordan', 'tone', 'blake', 'dillon', 'will'];
 
-    let cpuChoice = magicBois[Math.floor(Math.random() * magicBois.length)];
-    console.log(cpuChoice)
+    // let cpuChoice = magicBois[Math.floor(Math.random() * magicBois.length)];
+    // console.log(cpuChoice)
 
-    let points;
+    // let points;
 
-    let usersChoice;
+    // let usersChoice;
 
     // const scoreBoard = {
     //     playerScore: 0,
@@ -57,35 +57,35 @@ document.addEventListener('DOMContentLoaded', function () {
     //     },
     // };
 
-    const jordanButton = document.getElementById('jordan');
-    const blakeButton = document.getElementById('blake');
-    const toneButton = document.getElementById('tone');
-    const dillonButton = document.getElementById('dillon');
-    const willButton = document.getElementById('will');
+    // const jordanButton = document.getElementById('jordan');
+    // const blakeButton = document.getElementById('blake');
+    // const toneButton = document.getElementById('tone');
+    // const dillonButton = document.getElementById('dillon');
+    // const willButton = document.getElementById('will');
 
-    jordanButton.addEventListener('click', () => {
-        usersChoice = 'jordan';
-        playGame();
-    });
+    // jordanButton.addEventListener('click', () => {
+    //     usersChoice = 'jordan';
+    //     playGame();
+    // });
 
-    blakeButton.addEventListener('click', () => {
-        usersChoice = 'blake';
-        playGame();
-    });
+    // blakeButton.addEventListener('click', () => {
+    //     usersChoice = 'blake';
+    //     playGame();
+    // });
 
-    toneButton.addEventListener('click', () => {
-        usersChoice = 'tone';
-        playGame();
-    });
+    // toneButton.addEventListener('click', () => {
+    //     usersChoice = 'tone';
+    //     playGame();
+    // });
 
-    dillonButton.addEventListener('click', () => {
-        usersChoice = 'dillon';
-        playGame();
-    });
-    willButton.addEventListener('click', () => {
-        usersChoice = 'will';
-        playGame();
-    });
+    // dillonButton.addEventListener('click', () => {
+    //     usersChoice = 'dillon';
+    //     playGame();
+    // });
+    // willButton.addEventListener('click', () => {
+    //     usersChoice = 'will';
+    //     playGame();
+    // });
 
     // function playGame() {
     //     if (usersChoice === 'rock' && cpuChoice === 'scissors') {
