@@ -1,6 +1,31 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const magicBois = ['jordan', 'tone', 'blake', 'dillon'];
+document.addEventListener('DOMContentLoaded', function () {
+    const firebaseConfig = {
+        apiKey: "AIzaSyAkTJiWbAIVZtkmYlLCbOV5rdgNBU6qkZo",
+        authDomain: "magicbois.firebaseapp.com",
+        databaseURL: "https://magicbois.firebaseio.com",
+        projectId: "magicbois",
+        storageBucket: "magicbois.appspot.com",
+        messagingSenderId: "9464443469",
+        appId: "1:9464443469:web:54fb67767c3a51b8be2204",
+        measurementId: "G-N6RHKFFC38"
+    };
+
+    firebase.initializeApp(config);
+
+    // Get a reference to the database service
+    var database = firebase.database();
+
+    const preObject = document.getElementById('object');
+
+    const dbRefObject = firebase.database().ref().child('object');
+
+    dbRefObject.on('value', snap => console.log(snap.val()));
     
+    
+    
+    
+    const magicBois = ['jordan', 'tone', 'blake', 'dillon', 'will'];
+
     let cpuChoice = magicBois[Math.floor(Math.random() * magicBois.length)];
     console.log(cpuChoice)
 
@@ -37,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const blakeButton = document.getElementById('blake');
     const toneButton = document.getElementById('tone');
     const dillonButton = document.getElementById('dillon');
+    const willButton = document.getElementById('will');
 
     jordanButton.addEventListener('click', () => {
         usersChoice = 'jordan';
@@ -57,7 +83,10 @@ document.addEventListener('DOMContentLoaded', function(){
         usersChoice = 'dillon';
         playGame();
     });
-    
+    willButton.addEventListener('click', () => {
+        usersChoice = 'will';
+        playGame();
+    });
 
     // function playGame() {
     //     if (usersChoice === 'rock' && cpuChoice === 'scissors') {
