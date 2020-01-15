@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     databaseURL: "https://magicbois.firebaseio.com",
     storageBucket: "magicbois.appspot.com",
   };
-  firebase.initializeApp(config);
-  firebase.analytics();
   // Get a reference to the database service
   
+  console.log(firebase)
+
   var database = firebase.database();
 
     const preObject = document.getElementById('object');
