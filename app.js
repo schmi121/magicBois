@@ -12,11 +12,13 @@ document.addEventListener('DOMContentLoaded', function () {
     
     firebase.initializeApp(firebaseConfig);
 
-    // const preObject = document.getElementById('object');
+    console.log(firebase)
 
-    // const dbRefObject = firebase.database().ref().child('object');
+        // const preObject = document.getElementById('object');
 
-    // dbRefObject.on('value', snap => console.log(snap.val()));
+        // const dbRefObject = firebase.database().ref().child('object');
+
+        // dbRefObject.on('value', snap => console.log(snap.val()));
     
     
     
