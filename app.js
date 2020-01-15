@@ -13,11 +13,35 @@ document.addEventListener('DOMContentLoaded', function () {
     var firebaseInstance = firebase.initializeApp(firebaseConfig);
     console.log(firebaseInstance)
 
-    firebase.database().ref('/magic').push({test: "test"});
-    
+    var magicPlayers = firebase.database().ref("/magic/players");
 
+    magicPlayers.set({
+        Jordan: {
+            score: 0,
+        },
 
+        Dillon: {
+            score: 0,
+        },
 
+        Tone: {
+            score: 0,
+        },
+
+        Blake: {
+            score: 0,
+        },
+
+        Will: {
+            score: 0,
+        },
+    });
+
+    var jordanScoreRef = firebase.database().ref("magic/players/Jordan").child('score');
+
+    jordanScoreRef.transaction(function(currentScore) ({
+        return currentScore + 1;
+    });
 
     // const preObject = document.getElementById('object');
 
