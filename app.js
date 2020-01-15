@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Set the configuration for your app
   // TODO: Replace with your project's config object
-  var config = {
+  const firebaseConfig = {
     apiKey: "AIzaSyAkTJiWbAIVZtkmYlLCbOV5rdgNBU6qkZo",
     authDomain: "magicbois.firebaseapp.com",
     databaseURL: "https://magicbois.firebaseio.com",
+    projectId: "magicbois",
     storageBucket: "magicbois.appspot.com",
+    messagingSenderId: "9464443469",
+    appId: "1:9464443469:web:54fb67767c3a51b8be2204",
+    measurementId: "G-N6RHKFFC38"
   };
   // Get a reference to the database service
   
