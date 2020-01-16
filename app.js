@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let usersChoice;
 
+    let currentScoreRef = firebase.database().ref('magic/players/').child('/score');
+
     const jordanButton = document.getElementById('jordan');
     const blakeButton = document.getElementById('blake');
     const toneButton = document.getElementById('tone');
@@ -47,12 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
         playGame();
     });
 
-    var jordanScoreRef = firebase.database().ref("magic/players/Jordan").child('score');
-
-    jordanScoreRef.transaction(function (currentScore) ({
-        return currentScore + 1;
-    });
-
     var magicPlayersRef = db.collection('players')
 
     function playGame() {
@@ -62,25 +58,61 @@ document.addEventListener('DOMContentLoaded', function () {
                 Jordan: {
                     score: 0,
                 },
-        
+
                 Dillon: {
                     score: 0,
                 },
-        
+
                 Tone: {
                     score: 0,
                 },
-        
+
                 Blake: {
                     score: 0,
                 },
-        
+
                 Will: {
                     score: 0,
                 },
             });
-        } else {
-            return usersChoice
-        }   
-    }
+        } else function score() {
+            if (usersChoice === 'jordan') {
+                function increaseScore() {
+                    var jordanScoreRef = firebase.database().ref('magic/players/Jordan').child('score');
+                    jordanScoreRef.transaction(function (currentScoreRef) ({
+                        return currentScore + 1;
+                    });
+                };
+            } else if (usersChoice === 'blake') {
+                function increaseScore() {
+                    var blakeScoreRef = firebase.database().ref('magic/players/Blake').child('score');
+                    blakeScoreRef.transaction(function (currentScoreRef) ({
+                        return currentScore + 1;
+                    });
+                };
+            } else if (usersChoice === 'tone') {
+                function increaseScore() {
+                    var toneScoreRef = firebase.database().ref('magic/players/Tone').child('score');
+                    toneScoreRef.transaction(function (currentScoreRef) ({
+                        return currentScore + 1;
+                    });
+                };
+            } else if (usersChoice === 'dillon') {
+                function increaseScore() {
+                    var dillonScoreRef = firebase.database().ref('magic/players/Dillon').child('score');
+                    dillonScoreRef.transaction(function (currentScoreRef) ({
+                        return currentScore + 1;
+                    });
+                };
+            } else if (usersChoice === 'will') {
+                function increaseScore() {
+                    var willScoreRef = firebase.database().ref('magic/players/Will').child('score');
+                    willScoreRef.transaction(function (currentScoreRef) ({
+                        return currentScore + 1;
+                    });
+                };
+            } else (console.log('Null Pick')) {
+            };
+        };
+    };
 });
