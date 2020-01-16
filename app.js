@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         return currentScore + 1;
                     });
                 };
-            } else (console.log('Null Pick')) {
+            } else (console.log('Null Pick')); {
         };
     };
 };})
