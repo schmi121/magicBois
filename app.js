@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
         playGame();
     });
 
-    var magicPlayersRef = db.collection('players')
+    var magicPlayersRef = magicbois.collection('players')
 
     function playGame() {
         var playerQuery = magicPlayersRef.where('players');
