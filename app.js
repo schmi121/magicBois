@@ -49,10 +49,16 @@ document.addEventListener('DOMContentLoaded', function () {
         playGame();
     });
 
-    var magicPlayersRef = magicbois.collection('players')
+    var magicPlayersRef = firebase.database().ref();
+
+    magicPlayersRef.on("value", function (snapshot) {
+        console.log(snapshot.val());
+    }, function (error) {
+        console.log("Error: " + error.code);
+    });
 
     function playGame() {
-        var playerQuery = magicPlayersRef.where('players');
+        var playerQuery = magicPlayersRef;
         if (playerQuery != 'Jordan' || 'Dillon' || 'Blake' || 'Tone' || 'Will') {
             magicPlayers.set({
                 Jordan: {
@@ -112,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
                 };
             } else (console.log('Null Pick')); {
+            };
         };
     };
-};})
+})
