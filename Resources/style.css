@@ -30,6 +30,11 @@ img {
     height: 100px !important;
 }
 
+.playerRunBarterTown {
+    display: flex;
+    justify-content: center;
+}
+
 button {
     min-width: 60px;
     max-width: 60px;

@@ -30,46 +30,50 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     var firebaseInstance = firebase.initializeApp(firebaseConfig);
-    console.log(firebaseInstance)
-
     var databaseReference = firebase.database();
-    function initializeDatabase() {
-        databaseReference.ref('/magic/players').on("value", function (snapshot) {
-            console.log(snapshot.val());
-            if (!snapshot.val()) {
-                console.log("There's no data")
-                databaseReference.ref('/magic/players').set (players)
-            }
-        });
-    }
 
-    initializeDatabase();
-
+    
     const jordanButton = document.getElementById('jordan');
     const blakeButton = document.getElementById('blake');
     const toneButton = document.getElementById('tone');
     const dillonButton = document.getElementById('dillon');
     const willButton = document.getElementById('will');
 
-    jordanButton.addEventListener('click', (e) => {
-        incrementScoreByOne(e.srcElement.innerText);
-    });
+    const btnsArray = [jordanButton, blakeButton, toneButton, dillonButton, willButton];
 
-    blakeButton.addEventListener('click', (e) => {
-        incrementScoreByOne(e.srcElement.innerText);
-    });
+    btnsArray.forEach(button => {
+        button.addEventListener('click', e => {
+            incrementScoreByOne(e.srcElement.innerText);
+            updateDom(e);
+        })
+    })
 
-    toneButton.addEventListener('click', (e) => {
-        incrementScoreByOne(e.srcElement.innerText);
-    });
+    initializeDatabase();
+    
+    // jordanButton.addEventListener('click', (e) => {
+    //     incrementScoreByOne(e.srcElement.innerText);
+    //     updateDom(e);
+    // });
 
-    dillonButton.addEventListener('click', (e) => {
-        incrementScoreByOne(e.srcElement.innerText);
-    });
+    // blakeButton.addEventListener('click', (e) => {
+    //     incrementScoreByOne(e.srcElement.innerText);
+    //     updateDom(e);
+    // });
 
-    willButton.addEventListener('click', (e) => {
-        incrementScoreByOne(e.srcElement.innerText);
-    });
+    // toneButton.addEventListener('click', (e) => {
+    //     incrementScoreByOne(e.srcElement.innerText);
+    //     updateDom(e);
+    // });
+
+    // dillonButton.addEventListener('click', (e) => {
+    //     incrementScoreByOne(e.srcElement.innerText);
+    //     updateDom(e);
+    // });
+
+    // willButton.addEventListener('click', (e) => {
+    //     incrementScoreByOne(e.srcElement.innerText);
+    //     updateDom(e);
+    // });
 
     function incrementScoreByOne(player) {
         databaseReference.ref(`magic/players/${player}`).child('score').transaction(function (currentScore){
@@ -77,6 +81,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     };
 
+    function updateDom(e) {
+        let player = e.srcElement.innerText;
+        let element = e;
 
-    
-})  
+        if (e.type === 'click') {
+            databaseReference.ref('magic/players/').once("value", function (snapshot) {
+                let playersCurrentScore = snapshot.val()[player].score;
+                element.toElement.nextSibling.nextElementSibling.innerHTML = `<p>${playersCurrentScore}</p>`;
+            })
+        } else {
+            
+        }
+    }
+
+    function initializeDatabase() {
+        databaseReference.ref('/magic/players').on("value", function (snapshot) {
+            if (!snapshot.val()) {
+                databaseReference.ref('/magic/players').set(players)
+            }
+        });
+    }
+})
