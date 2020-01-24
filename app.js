@@ -2,19 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const players = {
         Jordan: {
-            score: 0,    
+            score: 0,
         },
         Dillon: {
-            score: 0,    
+            score: 0,
         },
         Blake: {
-            score: 0,    
+            score: 0,
         },
         Tone: {
-            score: 0,    
+            score: 0,
         },
         Will: {
-            score: 0,    
+            score: 0,
         }
     }
 
@@ -32,13 +32,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var firebaseInstance = firebase.initializeApp(firebaseConfig);
     var databaseReference = firebase.database();
 
-    
     const jordanButton = document.getElementById('jordan');
     const blakeButton = document.getElementById('blake');
     const toneButton = document.getElementById('tone');
     const dillonButton = document.getElementById('dillon');
     const willButton = document.getElementById('will');
-    
+
     const jordanIncButton = document.getElementById('jordanIncrementButton');
     const blakeIncButton = document.getElementById('blakeIncrementButton');
     const toneIncButton = document.getElementById('toneIncrementButton');
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const willDeButton = document.getElementById('willDecrementButton');
 
     const jordanPlayerHealth = document.getElementById('jordanHealth');
-    const blakePlayerHealth = document.getElementById('blakeHealth'); 
+    const blakePlayerHealth = document.getElementById('blakeHealth');
     const tonePlayerHealth = document.getElementById('toneHealth');
     const dillonPlayerHealth = document.getElementById('dillonHealth');
     const willPlayerHealth = document.getElementById('wilHealth');
@@ -88,14 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeDatabase();
 
     function incrementScoreByOne(player) {
-        databaseReference.ref(`magic/players/${player}`).child('score').transaction(function (currentScore){
+        databaseReference.ref(`magic/players/${player}`).child('score').transaction(function (currentScore) {
             return currentScore + 1;
         });
     };
-
-    // function incrementHealthByOne(playerHealthArray) {
-        
-    // }
 
     function updateDom(e) {
         let player = e.srcElement.innerText;
@@ -107,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 element.toElement.nextSibling.nextElementSibling.innerHTML = `<p>${playersCurrentScore}</p>`;
             })
         } else {
-            
+
         }
     }
 
@@ -115,7 +110,14 @@ document.addEventListener('DOMContentLoaded', function () {
         databaseReference.ref('/magic/players').on("value", function (snapshot) {
             if (!snapshot.val()) {
                 databaseReference.ref('/magic/players').set(players)
-            }
+            } else {
+                databaseReference.ref('magic/players/').once("value", function (snapshot) {
+                    let players = snapshot.val()
+                    for (let player in players) {
+                        document.getElementById(player.toLowerCase()).nextSibling.nextSibling.innerHTML = `<p>${players[player].score}</p>`;
+                    }
+                });
+            };
         });
-    }
+    };
 })

@@ -46,6 +46,7 @@ button {
 .healthContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     margin-right: 13%;
     margin-left: 13%;
