@@ -38,8 +38,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const toneButton = document.getElementById('tone');
     const dillonButton = document.getElementById('dillon');
     const willButton = document.getElementById('will');
+    
+    const jordanIncButton = document.getElementById('jordanIncrementButton');
+    const blakeIncButton = document.getElementById('blakeIncrementButton');
+    const toneIncButton = document.getElementById('toneIncrementButton');
+    const dillonIncButton = document.getElementById('dillonIncrementButton');
+    const willIncButton = document.getElementById('willIncrementButton');
+
+    const jordanDeButton = document.getElementById('jordanDecrementButton');
+    const blakeDeButton = document.getElementById('blakeDecrementButton');
+    const toneDeButton = document.getElementById('toneDecrementButton');
+    const dillonDeButton = document.getElementById('dillonDecrementButton');
+    const willDeButton = document.getElementById('willDecrementButton');
+
+    const jordanPlayerHealth = document.getElementById('jordanHealth');
+    const blakePlayerHealth = document.getElementById('blakeHealth'); 
+    const tonePlayerHealth = document.getElementById('toneHealth');
+    const dillonPlayerHealth = document.getElementById('dillonHealth');
+    const willPlayerHealth = document.getElementById('wilHealth');
 
     const btnsArray = [jordanButton, blakeButton, toneButton, dillonButton, willButton];
+    const playerHealthArray = [jordanPlayerHealth, blakePlayerHealth, tonePlayerHealth, dillonPlayerHealth, willPlayerHealth];
+    const incBtnsArray = [jordanIncButton, blakeIncButton, toneIncButton, dillonIncButton, willIncButton];
+    const deBtnsArray = [jordanDeButton, blakeDeButton, toneDeButton, dillonDeButton, willDeButton];
 
     btnsArray.forEach(button => {
         button.addEventListener('click', e => {
@@ -48,38 +69,33 @@ document.addEventListener('DOMContentLoaded', function () {
         })
     })
 
+    incBtnsArray.forEach(button => {
+        button.addEventListener('click', e => {
+            let currentHealth = parseInt(e.srcElement.parentNode.parentNode.childNodes[1].innerText);
+            currentHealth += 1;
+            e.srcElement.parentNode.parentNode.childNodes[1].innerHTML = `<p>${currentHealth.toString()}</p>`;
+        })
+    })
+
+    deBtnsArray.forEach(button => {
+        button.addEventListener('click', e => {
+            let currentHealth = parseInt(e.srcElement.parentNode.parentNode.childNodes[1].innerText);
+            currentHealth -= 1;
+            e.srcElement.parentNode.parentNode.childNodes[1].innerHTML = `<p>${currentHealth.toString()}</p>`;
+        })
+    })
+
     initializeDatabase();
-    
-    // jordanButton.addEventListener('click', (e) => {
-    //     incrementScoreByOne(e.srcElement.innerText);
-    //     updateDom(e);
-    // });
-
-    // blakeButton.addEventListener('click', (e) => {
-    //     incrementScoreByOne(e.srcElement.innerText);
-    //     updateDom(e);
-    // });
-
-    // toneButton.addEventListener('click', (e) => {
-    //     incrementScoreByOne(e.srcElement.innerText);
-    //     updateDom(e);
-    // });
-
-    // dillonButton.addEventListener('click', (e) => {
-    //     incrementScoreByOne(e.srcElement.innerText);
-    //     updateDom(e);
-    // });
-
-    // willButton.addEventListener('click', (e) => {
-    //     incrementScoreByOne(e.srcElement.innerText);
-    //     updateDom(e);
-    // });
 
     function incrementScoreByOne(player) {
         databaseReference.ref(`magic/players/${player}`).child('score').transaction(function (currentScore){
             return currentScore + 1;
         });
     };
+
+    // function incrementHealthByOne(playerHealthArray) {
+        
+    // }
 
     function updateDom(e) {
         let player = e.srcElement.innerText;
