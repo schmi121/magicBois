@@ -8,9 +8,12 @@
 
 #container {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-right: 13%;
+    margin-left: 13%;
     justify-content: space-evenly;
-    margin-right: 30%;
-    margin-left: 30%;
 }
 
 .playerContainer {
@@ -38,4 +41,34 @@ img {
 button {
     min-width: 60px;
     max-width: 60px;
+}
+
+.healthContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 13%;
+    margin-left: 13%;
+    justify-content: space-evenly;
+}
+
+#jordanHealth,
+#blakeHealth,
+#toneHealth,
+#dillonHealth,
+#willHealth {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    flex-direction: column;   
+}
+
+.lifeTotal {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    border-style: solid;
+    border-width: medium;
+    font-size: 24px;
+    font-weight: bold;
 }
